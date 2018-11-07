@@ -21,7 +21,7 @@
         },
         {
           "name": "expired",
-          "dataType": "BOOLEANS",
+          "dataType": 2,
           "booleanValue": false
         }
       ],
@@ -55,7 +55,7 @@
         },
         {
           "name": "expired",
-          "dataType": "BOOLEANS",
+          "dataType": 2,
           "booleanValue": false
         }
       ],
@@ -82,7 +82,7 @@
         },
         {
           "name": "expired",
-          "dataType": "BOOLEANS",
+          "dataType": 2,
           "booleanValue": false
         }
       ],
@@ -98,6 +98,7 @@
       "email": "hossein@medicalblockchain.io",
       "privateKey": "2f4175fa39e7d2a89884b492d741a494c2b4f1021d3b3deb7c93ab72cc84935c",
       "encryptedKey": "{\"iv\":\"h7h0uW9NqLB+VaKM7C8gSA==\",\"v\":1,\"iter\":10000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"Kn8J+U0Ko98=\",\"ct\":\"w5bGmngbGIt8QIIi/42gVDujsJNUkGsLwmeminMSYIdQq0i+qWZBz1ZYalxitEsSte7NY/L/UrDcYE6drcAmSOvQNQdIkwFz\"}",
+      "hashedPassword": "slf3UiKJzmcE03wvYFqcHselnMQlDOhhriovzXmGeyk="
     },
     {
       "username": "mohammadreza",
@@ -107,6 +108,7 @@
       "email": "mohammadreza@medicalblockchain.io",
       "privateKey": "68ca3f7423f76397a27eb1b4185e808b953fc5b82cfa3eb2fd375de1c2e53b4e",
       "encryptedKey": "{\"iv\":\"KuOUW7sBaqb9LIHdN1uATg==\",\"v\":1,\"iter\":10000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"uiawGO8JPSA=\",\"ct\":\"A2llr54xkkxnrgvkSEDV9jIjoChmivkALO8G9c1tnQxb6qgRUWI/qcYvZxa3VxhjnZSEDeuCavF6yB8+TiPZ+0s7TgfpwfUj\"}",
+      "hashedPassword": "90/BIv+IKk+4K3LY9IwWTEr+oNXXiTUXIMzBQdpUGUw="
     },
     {
       "username": "shaghayegh",
@@ -116,6 +118,7 @@
       "email": "shaghayegh@medicalblockchain.io",
       "privateKey": "86f508f1e4bfd975ce747e38adb6bd8b01e5b80143520710126d4b53118c123c",
       "encryptedKey": "{\"iv\":\"5/v02joKWVzbQpBJBntsTg==\",\"v\":1,\"iter\":10000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"gebKHyPsM3E=\",\"ct\":\"iWU9myR6SXRO2pQKdaVUhFqHs9yd2P9wxdmOXsVKYZL/qynlYE1HnDoxmlHuhnRBOECOj2akaF4g4f/MZBGcshqWePObn+mH\"}",
+      "hashedPassword": "SyoFXfALbmw/kP1yw4fDSddZHQBkMnX+LTkDj9jWiSo="
     }
   ]
 }
