@@ -8,27 +8,17 @@
           "required": true
         },
         {
-          "name": "subtype",
-          "dataType": 4
-        },
-        {
           "name": "weight",
           "dataType": 3,
           "numberExponent": -6
         },
         {
-          "name": "location",
-          "dataType": 7
+          "name": "expireDate",
+          "dataType": 3
         },
         {
-          "name": "temperature",
-          "dataType": 3,
-          "numberExponent": -6
-        },
-        {
-          "name": "shock",
-          "dataType": 3,
-          "numberExponent": -6
+          "name": "expired",
+          "dataType": 3
         }
     ]
   }
