@@ -82,8 +82,7 @@
         },
         {
           "name": "expired",
-          "dataType": 2,
-          "booleanValue": 0
+          "dataType": 2
         }
       ],
       "ownerIndex": 1
