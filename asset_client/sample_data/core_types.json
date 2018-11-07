@@ -14,7 +14,7 @@
         },
         {
           "name": "expireDate",
-          "dataType": 2
+          "dataType": 3
         },
         {
           "name": "expired",

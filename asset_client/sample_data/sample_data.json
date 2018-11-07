@@ -16,7 +16,7 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 2,
+          "dataType": 3,
           "numberValue": 3000
         },
         {
@@ -50,7 +50,7 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 2,
+          "dataType": 3,
           "numberValue": 4000
         },
         {
@@ -77,7 +77,7 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 2,
+          "dataType": 3,
           "numberValue": 5000
         },
         {
