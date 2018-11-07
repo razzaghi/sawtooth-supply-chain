@@ -14,11 +14,11 @@
         },
         {
           "name": "expireDate",
-          "dataType": 3
+          "dataType": 2
         },
         {
           "name": "expired",
-          "dataType": 5
+          "dataType": 2
         }
     ]
   }

@@ -16,13 +16,13 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 3,
+          "dataType": 2,
           "numberValue": 3000
         },
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
       ],
       "ownerIndex": 0,
@@ -50,13 +50,13 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 3,
+          "dataType": 2,
           "numberValue": 4000
         },
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
       ],
       "ownerIndex": 1
@@ -77,13 +77,13 @@
         },
         {
           "name": "expiredDate",
-          "dataType": 3,
+          "dataType": 2,
           "numberValue": 5000
         },
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
       ],
       "ownerIndex": 1
