@@ -15,7 +15,7 @@
           "numberValue": 140
         },
         {
-          "name": "expiredDate",
+          "name": "expireDate",
           "dataType": 3,
           "numberValue": 3000
         },
@@ -24,8 +24,7 @@
           "dataType": 2,
           "numberValue": 0
         }
-      ],
-      "ownerIndex": 0
+      ]
     },
     {
       "recordId": "7h15-45537-f1135",
@@ -42,7 +41,7 @@
           "numberValue": 135
         },
         {
-          "name": "expiredDate",
+          "name": "expireDate",
           "dataType": 3,
           "numberValue": 4000
         },
@@ -51,8 +50,7 @@
           "dataType": 2,
           "numberValue": 0
         }
-      ],
-      "ownerIndex": 0
+      ]
     },
     {
       "recordId": "7h15-45537-15-b357",
@@ -69,7 +67,7 @@
           "numberValue": 124
         },
         {
-          "name": "expiredDate",
+          "name": "expireDate",
           "dataType": 3,
           "numberValue": 5000
         },
@@ -78,8 +76,7 @@
           "dataType": 2,
           "numberValue": 0
         }
-      ],
-      "ownerIndex": 0
+      ]
     }
   ],
   "agents": [
