@@ -37,9 +37,8 @@ const {
  */
 const authorizableProperties = [
   ['weight', 'Weight'],
-  ['location', 'Location'],
-  ['temperature', 'Temperature'],
-  ['shock', 'Shock']
+  ['expireDate', 'Expire Date(Sec)'],
+  ['expired', 'expired'],
 ]
 
 const _labelProperty = (label, value) => [
@@ -258,62 +257,6 @@ const _propLink = (record, propName, content) =>
     { oncreate: m.route.link },
     content)
 
-const ReportLocation = {
-  view: (vnode) => {
-    let onsuccess = vnode.attrs.onsuccess || (() => null)
-    return [
-      m('form', {
-        onsubmit: (e) => {
-          e.preventDefault()
-          _updateProperty(vnode.attrs.record, {
-            name: 'location',
-            locationValue: {
-              latitude: parsing.toInt(vnode.state.latitude),
-              longitude: parsing.toInt(vnode.state.longitude)
-            },
-            dataType: payloads.updateProperties.enum.LOCATION
-          }).then(() => {
-            vnode.state.latitude = ''
-            vnode.state.longitude = ''
-          })
-          .then(onsuccess)
-        }
-      },
-      m('.form-row',
-        m('.form-group.col-5',
-          m('label.sr-only', { 'for': 'latitude' }, 'Latitude'),
-          m("input.form-control[type='text']", {
-            name: 'latitude',
-            type: 'number',
-            step: 'any',
-            min: -90,
-            max: 90,
-            onchange: m.withAttr('value', (value) => {
-              vnode.state.latitude = value
-            }),
-            value: vnode.state.latitude,
-            placeholder: 'Latitude'
-          })),
-        m('.form-group.col-5',
-          m('label.sr-only', { 'for': 'longitude' }, 'Longitude'),
-          m("input.form-control[type='text']", {
-            name: 'longitude',
-            type: 'number',
-            step: 'any',
-            min: -180,
-            max: 180,
-            onchange: m.withAttr('value', (value) => {
-              vnode.state.longitude = value
-            }),
-            value: vnode.state.longitude,
-            placeholder: 'Longitude'
-          })),
-
-        m('.col-2',
-          m('button.btn.btn-primary', 'Update'))))
-    ]
-  }
-}
 
 const ReportValue = {
   view: (vnode) => {
@@ -477,24 +420,16 @@ const AssetDetail = {
             })
            : null)),
 
-        _row(
-          _labelProperty(
-            'Location',
-            _propLink(record, 'location', _formatLocation(getPropertyValue(record, 'location')))
-          ),
-          (isReporter(record, 'location', publicKey) && !record.final
-           ? m(ReportLocation, { record, onsuccess: () => _loadData(record.recordId, vnode.state) })
-           : null)),
 
         _row(
           _labelProperty(
-            'Temperature',
-            _propLink(record, 'temperature', _formatTemp(getPropertyValue(record, 'temperature')))),
-          (isReporter(record, 'temperature', publicKey) && !record.final
+            'expireDate',
+            _propLink(record, 'expireDate', _formatValue(record, 'expireDate'))),
+          (isReporter(record, 'expireDate', publicKey) && !record.final
           ? m(ReportValue,
             {
-              name: 'temperature',
-              label: 'Temperature (°C)',
+              name: 'expireDate',
+              label: 'expireDate (Sec)',
               record,
               typeField: 'numberValue',
               type: payloads.updateProperties.enum.NUMBER,
@@ -505,13 +440,13 @@ const AssetDetail = {
 
         _row(
           _labelProperty(
-            'Shock',
-            _propLink(record, 'shock', _formatValue(record, 'shock'))),
-          (isReporter(record, 'shock', publicKey) && !record.final
+            'expired',
+            _propLink(record, 'expired', _formatValue(record, 'expired'))),
+          (isReporter(record, 'expired', publicKey) && !record.final
           ? m(ReportValue,
             {
-              name: 'shock',
-              label: 'Shock (g)',
+              name: 'expired',
+              label: 'expired',
               record,
               typeField: 'numberValue',
               type: payloads.updateProperties.enum.NUMBER,
