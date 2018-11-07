@@ -80,12 +80,21 @@ const getTxnCreator = (privateKeyHex = null, batcherPublicKeyHex = null) => {
 }
 
 const submitTxns = transactions => {
+
+  console.log('0000000000000000000000000000000000000000000000000000')
+  console.log(transactions)
+  console.log('0000000000000000000000000000000000000000000000000000')
+
   return request({
     method: 'POST',
     url: `${SERVER}/transactions?wait`,
     headers: { 'Content-Type': 'application/octet-stream' },
     encoding: null,
     body: TransactionList.encode({ transactions }).finish()
+  }).catch((err)=>{
+    console.log("---------------------------------------")
+    console.log(err)
+    console.log("---------------------------------------")
   })
 }
 
