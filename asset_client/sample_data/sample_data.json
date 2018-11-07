@@ -22,7 +22,7 @@
         {
           "name": "expired",
           "dataType": 2,
-          "numberValue": 0
+          "booleanValue": 0
         }
       ],
       "ownerIndex": 0,
@@ -56,7 +56,7 @@
         {
           "name": "expired",
           "dataType": 2,
-          "numberValue": 0
+          "booleanValue": 0
         }
       ],
       "ownerIndex": 1
@@ -83,7 +83,7 @@
         {
           "name": "expired",
           "dataType": 2,
-          "numberValue": 0
+          "booleanValue": 0
         }
       ],
       "ownerIndex": 1
