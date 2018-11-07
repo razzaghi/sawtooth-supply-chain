@@ -23,7 +23,7 @@ const {
   awaitServerPubkey,
   getTxnCreator,
   submitTxns,
-  encodeTimestampedPayload
+  encodeTimestampedPayload,
 } = require('../system/submit_utils')
 
 const SERVER = process.env.SERVER || 'http://localhost:3000'
@@ -32,20 +32,20 @@ if (DATA.indexOf('.json') === -1) {
   throw new Error('Use the "DATA" environment variable to specify a JSON file')
 }
 
-const { records, agents } = require(`./${DATA}`)
+const {records, agents} = require(`./${DATA}`)
 let createTxn = null
 
 const createProposal = (privateKey, action) => {
   return createTxn(privateKey, encodeTimestampedPayload({
     action: protos.SCPayload.Action.CREATE_PROPOSAL,
-    createProposal: protos.CreateProposalAction.create(action)
+    createProposal: protos.CreateProposalAction.create(action),
   }))
 }
 
 const answerProposal = (privateKey, action) => {
   return createTxn(privateKey, encodeTimestampedPayload({
     action: protos.SCPayload.Action.ANSWER_PROPOSAL,
-    answerProposal: protos.AnswerProposalAction.create(action)
+    answerProposal: protos.AnswerProposalAction.create(action),
   }))
 }
 
@@ -68,10 +68,13 @@ protos.compile()
     const agentAdditions = agents.map(agent => {
       return createTxn(agent.privateKey, encodeTimestampedPayload({
         action: protos.SCPayload.Action.CREATE_AGENT,
-        createAgent: protos.CreateAgentAction.create({ name: agent.name })
+        createAgent: protos.CreateAgentAction.create({name: agent.name}),
       }))
     })
 
+    console.log("================================ agents created")
+    console.log(agentAdditions)
+    console.log("================================ start transaction")
     return submitTxns(agentAdditions)
   })
 
@@ -81,11 +84,12 @@ protos.compile()
     const userRequests = agents.map(agent => {
       const user = _.omit(agent, 'name', 'privateKey', 'hashedPassword')
       user.password = agent.hashedPassword
+      console.log("-----------------------------------------", agent.hashedPassword)
       return request({
         method: 'POST',
         url: `${SERVER}/users`,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(user),
       })
     })
 
@@ -94,24 +98,24 @@ protos.compile()
 
   // Create Records
   .then(() => {
+    console.log('========================================== /UserCreated')
     console.log('Creating Records . . .')
     const recordAdditions = records.map(record => {
       const properties = record.properties.map(property => {
         return protos.PropertyValue.create(property)
       })
 
-
-      console.log("=======================================")
+      console.log('=======================================')
       console.log(properties)
-      console.log("=======================================")
+      console.log('=======================================')
 
       return createTxn(agents[record.ownerIndex || 0].privateKey, encodeTimestampedPayload({
         action: protos.SCPayload.Action.CREATE_RECORD,
         createRecord: protos.CreateRecordAction.create({
           recordId: record.recordId,
           recordType: record.recordType,
-          properties
-        })
+          properties,
+        }),
       }))
     })
 
@@ -127,7 +131,7 @@ protos.compile()
         return createProposal(agents[record.ownerIndex || 0].privateKey, {
           recordId: record.recordId,
           receivingAgent: agents[record.custodianIndex].publicKey,
-          role: protos.Proposal.Role.CUSTODIAN
+          role: protos.Proposal.Role.CUSTODIAN,
         })
       })
 
@@ -141,7 +145,7 @@ protos.compile()
           recordId: record.recordId,
           receivingAgent: agents[record.custodianIndex].publicKey,
           role: protos.Proposal.Role.CUSTODIAN,
-          response: protos.AnswerProposalAction.Response.ACCEPT
+          response: protos.AnswerProposalAction.Response.ACCEPT,
         })
       })
 
@@ -158,7 +162,7 @@ protos.compile()
           recordId: record.recordId,
           receivingAgent: agents[record.reporterIndex].publicKey,
           role: protos.Proposal.Role.REPORTER,
-          properties: record.reportableProperties
+          properties: record.reportableProperties,
         })
       })
 
@@ -172,7 +176,7 @@ protos.compile()
           recordId: record.recordId,
           receivingAgent: agents[record.reporterIndex].publicKey,
           role: protos.Proposal.Role.REPORTER,
-          response: protos.AnswerProposalAction.Response.ACCEPT
+          response: protos.AnswerProposalAction.Response.ACCEPT,
         })
       })
 
