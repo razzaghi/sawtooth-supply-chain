@@ -97,11 +97,13 @@ protos.compile()
     console.log('Creating Records . . .')
     const recordAdditions = records.map(record => {
       const properties = record.properties.map(property => {
-        if (property.dataType === protos.PropertySchema.DataType.LOCATION) {
-          property.locationValue = protos.Location.create(property.locationValue)
-        }
         return protos.PropertyValue.create(property)
       })
+
+
+      console.log("=======================================")
+      console.log(properties)
+      console.log("=======================================")
 
       return createTxn(agents[record.ownerIndex || 0].privateKey, encodeTimestampedPayload({
         action: protos.SCPayload.Action.CREATE_RECORD,

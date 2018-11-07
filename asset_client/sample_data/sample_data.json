@@ -22,8 +22,16 @@
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
+      ],
+      "ownerIndex": 0,
+      "custodianIndex": 1,
+      "reporterIndex": 2,
+      "reportableProperties": [
+        "expireDate",
+        "expired",
+        "weight"
       ]
     },
     {
@@ -48,9 +56,10 @@
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
-      ]
+      ],
+      "ownerIndex": 1
     },
     {
       "recordId": "7h15-45537-15-b357",
@@ -74,9 +83,10 @@
         {
           "name": "expired",
           "dataType": 2,
-          "booleanValue": false
+          "numberValue": 0
         }
-      ]
+      ],
+      "ownerIndex": 1
     }
   ],
   "agents": [
