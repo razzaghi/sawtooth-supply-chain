@@ -29,9 +29,8 @@ const layout = require('../components/layout')
  */
 const authorizableProperties = [
   ['weight', 'Weight'],
-  ['location', 'Location'],
-  ['temperature', 'Temperature'],
-  ['shock', 'Shock']
+  ['expireDate', 'Expire Date'],
+  ['expired', 'Expired'],
 ]
 
 /**
@@ -64,11 +63,9 @@ const AddAssetForm = {
           }
         },
         m('legend', 'Track New Asset'),
-        forms.textInput(setter('serialNumber'), 'Serial Number'),
 
         layout.row([
           forms.textInput(setter('type'), 'Type'),
-          forms.textInput(setter('subtype'), 'Subtype', false)
         ]),
 
         forms.group('Weight (kg)', forms.field(setter('weight'), {
@@ -78,22 +75,21 @@ const AddAssetForm = {
           required: false
         })),
 
-        layout.row([
-          forms.group('Latitude', forms.field(setter('latitude'), {
-            type: 'number',
-            step: 'any',
-            min: -90,
-            max: 90,
-            required: false
-          })),
-          forms.group('Longitude', forms.field(setter('longitude'), {
-            type: 'number',
-            step: 'any',
-            min: -180,
-            max: 180,
-            required: false
-          }))
-        ]),
+       forms.group('Expire Date(Sec)', forms.field(setter('expireDate'), {
+          type: 'number',
+          step: 'any',
+          min: 0,
+          required: false
+        })),
+
+       forms.group('Expired', forms.field(setter('expired'), {
+          type: 'boolean',
+          step: 'any',
+          min: 0,
+          required: false
+        })),
+
+
 
         m('.reporters.form-group',
           m('label', 'Authorize Reporters'),
