@@ -77,11 +77,6 @@ protos.compile()
     console.log('================================ start transaction')
     return submitTxns(agentAdditions)
   })
-  .catch((error) => {
-    console.log('------------------------------------------ error')
-    console.log(error)
-    console.log('------------------------------------------ /error')
-  })
 
   // Create Users
   .then(() => {
