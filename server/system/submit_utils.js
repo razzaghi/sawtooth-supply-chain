@@ -87,10 +87,6 @@ const submitTxns = transactions => {
     headers: { 'Content-Type': 'application/octet-stream' },
     encoding: null,
     body: TransactionList.encode({ transactions }).finish()
-  }).catch((err)=>{
-    console.log("---------------------------------------")
-    console.log(err.message)
-    console.log("---------------------------------------")
   })
 }
 
