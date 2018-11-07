@@ -72,10 +72,15 @@ protos.compile()
       }))
     })
 
-    console.log("================================ agents created")
+    console.log('================================ agents created')
     console.log(agentAdditions)
-    console.log("================================ start transaction")
+    console.log('================================ start transaction')
     return submitTxns(agentAdditions)
+  })
+  .catch((error) => {
+    console.log('------------------------------------------ error')
+    console.log(error)
+    console.log('------------------------------------------ /error')
   })
 
   // Create Users
@@ -84,7 +89,7 @@ protos.compile()
     const userRequests = agents.map(agent => {
       const user = _.omit(agent, 'name', 'privateKey', 'hashedPassword')
       user.password = agent.hashedPassword
-      console.log("-----------------------------------------", agent.hashedPassword)
+      console.log('-----------------------------------------', agent.hashedPassword)
       return request({
         method: 'POST',
         url: `${SERVER}/users`,
